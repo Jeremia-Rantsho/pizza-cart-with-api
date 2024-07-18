@@ -1,13 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Pizza Cart with API</title>
-</head>
-<body>
-    
 
-    
+</head>
+
+<body>
+    <div class="webBody">
+        <header>
+            <div class="logoContainer">
+                <img class="logoImage" src="images/logo.jpg" alt="logo-pizza">
+            </div>
+            <div class="logoHeaders">
+                <h1>Zandile's Perfect Pizza</h1>
+                <h2 class="slogan">Grab a bite on the <strong>Go!!!</strong></h2>
+            </div>
+        </header>
+
+        <hr>
+
+        <main x-data="pricer">
+            <div class="myCart" x-show="pizzaCart">
+                <h3>Pizza Cart</h3>
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Small</h4>
+                        </div>
+                        <div class="c-containers"><button x-show="smallQty >= 0"
+                                x-on:click="orderSmallpizza()">+</button>
+                        </div>
+                        <div class="c-containers"><button x-show="smallQty >= 0" @click="cancelSmallpizza()">-</button>
+                        </div>
+                        <div class="c-containers">
+                            R<span x-text="smallTotalprice.toFixed(2)"></span>
+                        </div>
+                    </div>
+                    <span x-text="smallQty"></span>
+                </div>
+
+
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Medium</h4>
+                        </div>
+                        <div class="c-containers"><button x-show="mediumQty >= 0"
+                                x-on:click="orderMediumpizza()">+</button>
+                        </div>
+                        <div class="c-containers"><button x-show="mediumQty >= 0"
+                                @click="cancelMediumpizza()">-</button></div>
+                        <div class="c-containers">
+                            R<span x-text="mediumTotalprice.toFixed(2)"></span>
+                        </div>
+                    </div>
+                    <span x-text="mediumQty"></span>
+                </div>
+
+
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Large</h4>
+                        </div>
+                        <div class="c-containers"><button x-show="largeQty >= 0"
+                                x-on:click="orderLargepizza()">+</button>
+                        </div>
+                        <div class="c-containers"><button x-show="largeQty >= 0" @click="cancelLargepizza()">-</button>
+                        </div>
+                        <div class="c-containers">
+                            R<span x-text="largeTotalprice.toFixed(2)"></span>
+                        </div>
+                    </div>
+                    <span x-text="largeQty"></span>
+                </div>
+
+                <div>
+                    <div class="pizzaContainer">
+                        <div class="c-containers">
+                            <h4>Total Cost:</h4>
+                        </div>
+                        <div class="c-containers">
+                            R<span x-text="pizzaTotalcost().toFixed(2)"></span>
+                        </div>
+                    </div>
+                    <span x-text="pizzaTotalQty()"></span>
+                </div>
+
+                <div x-show="pizzaTotalQty() > 0">
+
+                    <label>Enter Amount</label>
+                    <input class="input" type="number" x-model="pizzaAmount">
+                </div>
+                <button x-show="pizzaTotalQty() > 0" class="myBuyBtn" x-on:click="purchasePizza()">
+                    Checkout
+                </button>
+                <span x-text="paymentMsg"></span>
+                <br>
+                <div x-show="totalChange > 0">
+                    Your change is R<span x-text="totalChange.toFixed(2)"></span>
+                </div>
+
+            </div>
+            <hr>
+            <div x-show="showHistory">
+                <h1>ORDER</h1>
+                <div>
+                    <div>
+                        <table class="myPizzaTable" border="1">
+                            <thead>
+                                <tr>
+                                    <th>Flavour</th>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template x-for="pizza in pizzasCart">
+                                    <tr>
+                                        <td x-text="pizza.flavour"></td>
+                                        <td x-text="pizza.size"></td>
+                                        <td x-text="pizza.price"></td>
+                                        <td>
+                                            <button>+</button>
+                                            x <span x-text="pizza.qty"></span>
+                                            <button>-</button>
+                                        </td>
+                                        <td x-text="pizza.total"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">Total</td>
+
+                                        <td>R<span x-text="pizza.total.toFixed(2)"></span></td>
+                                    </tr>
+
+                                </template>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="pizzaflex">
+                    <div class="smallpContainer">
+                        <img class="smallPizza" src="images/pizza.png">
+                        <h2>Small Pizza</h2>
+                        <h2><a href="#" target="_parent">
+                                R48&#46;95
+                            </a>
+                        </h2>
+                        <ul>
+                            <li>small pizza with 3 toppings</li>
+                            <li>1 meat topping</li>
+                            <li>3 or less other toppings</li>
+                        </ul>
+                        <button x-show="smallQty>=0" x-on:click="orderSmallpizza(), showPizzacart()" class="myBuyBtn">
+                            Order Now
+                        </button>
+                    </div>
+
+                    <div class="mediumpContainer">
+                        <div class="medPizza-pic">
+                            <img class="mediumPizza" src="images/pizza.png">
+                        </div>
+
+                        <h2>Medium Pizza</h2>
+                        <h2><a href="#" target="_parent">
+                                R87&#46;99
+                            </a>
+                        </h2>
+
+                        <ul>
+                            <li>Medium margeritha pizza with 3 toppings max</li>
+                            <li>2 or less meat toppings</li>
+                            <li>3 or less other toppings</li>
+                        </ul>
+                        <button x-on:click="orderMediumpizza(), showPizzacart()" class="myBuyBtn">
+                            Order Now
+                        </button>
+                    </div>
+
+                    <div class="largepContainer">
+                        <img class="largePizza" src="images/pizza.png">
+                        <h2>Large Pizza</h2>
+                        <h2><a href="#" target="_parent">
+                                R145&#46;99
+                            </a>
+                        </h2>
+
+                        <ul>
+                            <li>large margeritha pizza with 3 toppings max</li>
+                            <li>3 meat toppings max</li>
+                            <li>3 or less other toppings.</li>
+                        </ul>
+                        <button x-on:click="orderLargepizza(), showPizzacart()" class="myBuyBtn">
+                            Order Now
+                        </button>
+                    </div>
+
+                </div>
+
+                <div class="pizzaListing">
+                    <template x-for="pizza in myPizzas">
+                        <div class="eachPizza">
+                            <h4 x-text="pizza.flavour"></h4><br><br>
+                            <strong><span x-text="pizza.size"></span></strong><br><br>
+                            <strong>R<span x-text="pizza.price"></span></strong><br><br>
+                            <button class="btn">Order Now</button>
+
+                        </div>
+
+                    </template>
+
+
+                </div>
+
+
+        </main>
+        <hr>
+        <footer>
+            <div class="contacts">
+                <p>Contact Us&#58; (021)&ndash;541&ndash;1000</p>
+                <p>Email: zandilepizza@outlook.com</p>
+                <div class="mySocial">
+                    <h4>Follow Us </h4>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                </div>
+            </div>
+
+            <div class="address">
+                <h3>Address</h3>
+                <ul>
+                    <li>Pizza Plaza</li>
+                    <li>Dough Road</li>
+                    <li>Base Town</li>
+                    <li>7659</li>
+                </ul>
+            </div>
+        </footer>
+        <span>
+            @JD Rantsho
+        </span>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="functionality.js"></script>
+    <script src="pricing.js"></script>
 </body>
+
 </html>

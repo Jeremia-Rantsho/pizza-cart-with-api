@@ -1,0 +1,158 @@
+.webBody {
+    background-color: #741818;
+    ;
+    color: aliceblue;
+    padding: 1em 1em 5em 1em;
+    font-family: Arial;
+    line-height: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slogan {
+    font-style: italic;
+    font-size: medium;
+}
+
+.myCart {
+    background-color: #f08080;
+    text-align: center;
+    padding-bottom: 5em;
+}
+
+.pizzaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-containers button {
+    margin: 0 5px;
+}
+
+.myBuyBtn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+}
+
+.smallPizza {
+    float: inline-end;
+    width: 20%;
+    margin-right: 30%;
+}
+
+.mediumPizza {
+    float: right;
+    width: 30%;
+    margin-right: 40%;
+}
+
+.largePizza {
+    float: right;
+    width: 40%;
+    margin-right: 20%;
+
+}
+
+.logoImage {
+    width: 20%;
+}
+
+.logoContainer {
+    text-align: center;
+}
+
+.mediumpContainer {
+    background-color: #f08080;
+    padding: 1em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.largepContainer {
+    background-color: #f08080;
+    padding: 1em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.smallpContainer {
+    background-color: #f08080;
+    padding: 1em;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+}
+
+.contacts {
+    margin-right: 40%;
+}
+
+footer {
+    background-color: #f88888;
+    padding: 1em;
+    padding: 1em 1em 5em 1em;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+    margin-bottom: 10px;
+}
+
+span {
+    margin-top: 5px;
+}
+
+.myPizzaTable {
+    border: 1px solid white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pizzaListing {
+    background-color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.eachPizza {
+    width: 100%;
+    color: #f88888;
+    text-align: center;
+    border: 1px solid #741818;
+}
+
+@media(min-width:960px) {
+    .pizzaflex {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+
+    .eachPizza {
+        display: inline-block;
+        width: 24.7%;
+        color: #f88888;
+        text-align: center;
+        border: 1px solid #741818;
+    }
+
+    footer {
+        display: flex;
+    }
+}

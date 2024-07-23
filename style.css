@@ -28,7 +28,7 @@ header {
 }
 
 .myCart {
-    background-color: #f08080;
+    background-color: #2c0707;
     text-align: center;
     padding-bottom: 5em;
 }
@@ -78,7 +78,7 @@ header {
 }
 
 .mediumpContainer {
-    background-color: #f08080;
+    background-color: #570c0c;
     padding: 1em;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -86,7 +86,7 @@ header {
 }
 
 .largepContainer {
-    background-color: #f08080;
+    background-color: #5c1212;
     padding: 1em;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -94,7 +94,7 @@ header {
 }
 
 .smallpContainer {
-    background-color: #f08080;
+    background-color: #2c0707;
     padding: 1em;
     margin-right: 15px;
     margin-bottom: 15px;
@@ -106,7 +106,7 @@ header {
 }
 
 footer {
-    background-color: #f88888;
+    background-color: #2c0707;
     padding: 1em;
     padding: 1em 1em 5em 1em;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
@@ -131,10 +131,20 @@ span {
 
 .eachPizza {
     width: 100%;
-    color: #f88888;
+    color: #611414;
     text-align: center;
     border: 1px solid #741818;
 }
+
+
+td {
+    text-align: center;
+}
+.pizzaImages{
+    width: 30%;
+}
+
+[x-cloak] { display: none !important; }
 
 @media(min-width:960px) {
     .pizzaflex {
@@ -147,7 +157,7 @@ span {
     .eachPizza {
         display: inline-block;
         width: 24.7%;
-        color: #f88888;
+        color: #4e0808;
         text-align: center;
         border: 1px solid #741818;
     }

@@ -96,7 +96,7 @@ document.addEventListener("alpine:init", () => {
             },
 
             pizzaImage(pizza) {
-                return `./images/${pizza.size}.png`
+                return `./images/Slicedpizza.png`
             },
 
             featuredPizzas() {

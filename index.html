@@ -158,7 +158,7 @@
             <div class="pizzas" x-show="cartID != ''">
                 <template x-for="pizza in featuredpizzas">
                     <div class="pizza small_pizza">
-                        <img x-bind:src="pizzaImage(pizza)" width="150px"><br><br>
+                        <img x-bind:src="pizzaImage(pizza)" src="images/Slicedpizza.png" width="150px"><br><br>
                         <span>Flavour: </span><strong><span x-text="pizza.flavour"></span></strong><br><br>
                         <span>Size: </span><strong><span x-text="pizza.size"></span></strong><br><br>
                         <span>Price: </span><strong>R<span x-text="pizza.price"></span></strong><br><br>

@@ -155,17 +155,17 @@
                 </table>
             </div>
 
-            <!-- <div class="pizzas" x-show="cartID != ''">
+            <div class="pizzas" x-show="cartID != ''">
                 <template x-for="pizza in featuredpizzas">
                     <div class="pizza small_pizza">
                         <img x-bind:src="pizzaImage(pizza)" width="150px"><br><br>
                         <span>Flavour: </span><strong><span x-text="pizza.flavour"></span></strong><br><br>
                         <span>Size: </span><strong><span x-text="pizza.size"></span></strong><br><br>
                         <span>Price: </span><strong>R<span x-text="pizza.price"></span></strong><br><br>
-                        <button class="btn" x-on:click="add(pizza.id)">BUY</button>
+                        <button class="btn" x-on:click="add(pizza.id)">Order Now</button>
                     </div>
                 </template>
-            </div> -->
+            </div>
 
             <div class="pizzaListing" x-show="username && cartID">
                 <template x-for="pizza in pizzas">
